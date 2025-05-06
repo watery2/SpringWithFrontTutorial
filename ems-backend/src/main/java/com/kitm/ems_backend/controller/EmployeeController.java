@@ -2,11 +2,11 @@ package com.kitm.ems_backend.controller;
 
 import com.kitm.ems_backend.dto.EmployeeDto;
 import com.kitm.ems_backend.service.EmployeeService;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,6 +27,7 @@ public class EmployeeController {
     // Build add employee Rest API
 
     @PostMapping
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto)
     {
         EmployeeDto savedEmployee = employeeService.createEmployee(employeeDto);
@@ -37,6 +38,7 @@ public class EmployeeController {
     // build get employee Rest api
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable("id") Long employeeId)
     {
         EmployeeDto employeeDto = employeeService.getEmployeeById(employeeId);
@@ -45,6 +47,7 @@ public class EmployeeController {
     }
 
     @GetMapping
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<List<EmployeeDto>> getAllEmployees()
     {
         List<EmployeeDto> employeeDtos = employeeService.getAllEmployees();
@@ -53,6 +56,7 @@ public class EmployeeController {
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<EmployeeDto> updateEmployee(@PathVariable("id") Long employeeId, @RequestBody EmployeeDto updatedEmployee)
     {
         EmployeeDto employeeDto = employeeService.updateEmployee(employeeId, updatedEmployee);
@@ -61,6 +65,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<String> deleteEmployee(@PathVariable("id") Long employeeId)
     {
         employeeService.deleteEmployee(employeeId);

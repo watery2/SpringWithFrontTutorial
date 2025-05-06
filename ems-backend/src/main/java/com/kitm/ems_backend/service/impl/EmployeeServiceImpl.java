@@ -7,7 +7,6 @@ import com.kitm.ems_backend.exception.ResourceNotFoundException;
 import com.kitm.ems_backend.mapper.EmployeeMapper;
 import com.kitm.ems_backend.repository.EmployeeRepository;
 import com.kitm.ems_backend.service.EmployeeService;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

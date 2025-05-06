@@ -9,8 +9,15 @@ function ListEmployeeComponenet() {
     const navigator = useNavigate();
 
     useEffect(() => {
+
+        const token = localStorage.getItem("token");
+        if (!token) {
+            navigator('/login');
+            return;
+        }
+
         getAllEmployees();
-    }, [])
+    }, [navigator]);
 
     function getAllEmployees()
     {

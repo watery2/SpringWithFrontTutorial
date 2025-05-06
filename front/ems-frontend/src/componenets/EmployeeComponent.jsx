@@ -19,6 +19,13 @@ const EmployeeComponent = () => {
     const navigator = useNavigate();
 
     useEffect(() => {
+
+        const token = localStorage.getItem("token");
+        if (!token) {
+            navigator('/login');
+            return;
+        }
+
         if (id){
             getEmployee(id).then((response) => {
                 setFirstName(response.data.firstName);
@@ -27,7 +34,7 @@ const EmployeeComponent = () => {
                     navigator('/employees');
                 })
         }
-    }, [id])
+    }, [id, navigator])
 
     function saveOrUpdateEmployee(e)
     {

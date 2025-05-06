@@ -2,10 +2,6 @@ package com.kitm.ems_backend.entity;
 
 import com.kitm.ems_backend.dto.EmployeeDto;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "employees")
