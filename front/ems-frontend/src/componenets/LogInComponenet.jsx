@@ -18,6 +18,7 @@ const LogInComponenet = () => {
             signin(user).then((response) => {
                 const token = response.data.token;
                 localStorage.setItem("token", token);
+                localStorage.setItem("roles", JSON.stringify(response.data.roles));
                 navigator("/employees");
             }).catch(error => {console.log(error)});
         }

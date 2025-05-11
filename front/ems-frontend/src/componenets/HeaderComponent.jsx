@@ -16,6 +16,7 @@ function HeaderComponent() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("roles");
     setIsAuthenticated(false); // Update UI
     navigator("/login");
   };
