@@ -19,7 +19,7 @@ const SignUpComponenet = () => {
 
         singup(user).then((respnse) => {
             console.log(respnse.data);
-            navigator("/employees");
+            navigator("/login");
         }).catch(error => {console.log(error)});
     }
 

@@ -8,9 +8,14 @@ function ListEmployeeComponenet() {
 
     const navigator = useNavigate();
 
+    const roles = localStorage.getItem("roles");
+
     useEffect(() => {
 
         const token = localStorage.getItem("token");
+        
+        console.log("zzzzzzzz ");
+
         if (!token) {
             navigator('/login');
             return;
@@ -50,7 +55,7 @@ function ListEmployeeComponenet() {
     return (
         <div className="container">
             <h2 className="text-center">List of Employees</h2>
-            {localStorage.getItem("roles").includes("ROLE_ADMIN") && (<button className="btn btn-primary mb-2" onClick={addNewEmployee}>Add Employee</button>)}
+            {roles &&  roles.includes("ROLE_ADMIN") && (<button className="btn btn-primary mb-2" onClick={addNewEmployee}>Add Employee</button>)}
             <table className="table table-striped table-bordered">
                 <thead>
                     <tr>
