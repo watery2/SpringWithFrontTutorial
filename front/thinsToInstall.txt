@@ -1,4 +1,4 @@
-npm create vit@latest name
+npm create vite@latest name
 
 npm install bootstrap --save
 npm install axios --save
